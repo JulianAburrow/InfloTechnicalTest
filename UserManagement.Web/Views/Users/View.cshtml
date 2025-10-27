@@ -1,0 +1,43 @@
+﻿@model UserManagement.Web.Models.Users.UserListItemViewModel
+
+<h2>User Details</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Forename</th>
+        <td>@Model.Forename</td>
+    </tr>
+    <tr>
+        <th>Surname</th>
+        <td>@Model.Surname</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Date of Birth</th>
+        <td>@Model.DateOfBirth.ToString("dd MMM yyyy")</td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td>
+            @if (Model.IsActive)
+            {
+                <span class="text-success">Active</span>
+            }
+            else
+            {
+                <span class="text-danger">Inactive</span>
+            }
+        </td>
+    </tr>
+</table>
+
+<a asp-controller="Users" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edit</a>
+&nbsp;
+<a asp-controller="Users" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+&nbsp;
+<a asp-action="List" class="btn btn-secondary">Back to List</a>
+
+

@@ -1,0 +1,53 @@
+﻿@model UserManagement.Web.Models.Users.UserListItemViewModel
+
+<h2>Create New User</h2>
+
+<form asp-action="Create" method="post" class="mt-3">
+	<table class="table table-bordered">
+		<tr>
+			<th>Forename</th>
+			<td>
+				<input asp-for="Forename" class="form-control" />
+				<span asp-validation-for="Forename" class="text-danger"></span>
+			</td>
+		</tr>
+		<tr>
+			<th>Surname</th>
+			<td>
+				<input asp-for="Surname" class="form-control" />
+				<span asp-validation-for="Surname" class="text-danger"></span>
+			</td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td>
+				<input asp-for="Email" class="form-control" />
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</td>
+		</tr>
+		<tr>
+			<th>Date of Birth</th>
+			<td>
+				<input asp-for="DateOfBirth" class="form-control" type="date" />
+				<span asp-validation-for="DateOfBirth" class="text-danger"></span>
+			</td>
+		</tr>
+		<tr>
+			<th>Status</th>
+			<td>
+				<input asp-for="IsActive" type="checkbox" />
+				<label asp-for="IsActive">Active</label>
+			</td>
+		</tr>
+	</table>
+
+	<button type="submit" class="btn btn-primary">Create User</button>
+	&nbsp;
+	<a asp-action="List" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
